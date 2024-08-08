@@ -5,13 +5,13 @@ export const getUsers = async () => {
   return await response.json();
 };
 
-export const createUser = async (user) => {
-  const response = await fetch(API_URL, {
+export const createUser = async (username, email, password) => {
+  const response = await fetch(API_URL + '/store', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(user),
+    body: JSON.stringify(username, email, password),
   });
   return await response.json();
 };

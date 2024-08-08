@@ -6,7 +6,7 @@ import { Flex, Layout, Form, Input, Button, Checkbox } from 'antd';
 import User from './User';
 const { Header, Footer, Sider, Content } = Layout;
 
-const Forms = ({ user, onEdit, onDelete }) =>{
+const Forms = ({ user, onEdit, onDelete, onCreate }) =>{
     const [username, setUsername] = useState(null);
     const [id, setId] = useState(null);
     const [email, setEmail] = useState(null);
@@ -114,7 +114,7 @@ const Forms = ({ user, onEdit, onDelete }) =>{
                     }}
                     >
                     <Button className='buttonStyle' type="primary" htmlType="submit"
-                      
+                      onClick={() => onCreate(username, email, password)}
                      >
                         Add 
                     </Button>

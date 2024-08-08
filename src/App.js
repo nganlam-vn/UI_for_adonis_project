@@ -1,7 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Link, Routes, BrowserRouter } from 'react-router-dom';
-import HomePage from './pages/HomePage';
-import UserPage from './pages/UserPage';
 import UserList from './components/UserList';
 import Forms from './components/Forms';
 
