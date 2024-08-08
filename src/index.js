@@ -4,18 +4,12 @@ import './index.css';
 import App from './App';
 
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Forms from './form';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-   <BrowserRouter>
-   <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/form" element={<Forms />} />
-   </Routes>
-   </BrowserRouter>
-  
+   <React.StrictMode>
+    <App />
+  </React.StrictMode>
 );
 
 reportWebVitals();

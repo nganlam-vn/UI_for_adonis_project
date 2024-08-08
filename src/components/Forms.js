@@ -1,11 +1,14 @@
-import './App.css';
+import React from 'react';
+import '../App.css';
 import { useState, useEffect } from 'react';
+import { getUsers, deleteUser, updateUser } from '../services/userServices';
 import { Flex, Layout, Form, Input, Button, Checkbox } from 'antd';
-import fetchAPI from './fetch';
+import User from './User';
 const { Header, Footer, Sider, Content } = Layout;
 
-function Forms() {
+const Forms = ({ user, onEdit, onDelete }) =>{
     const [username, setUsername] = useState(null);
+    const [id, setId] = useState(null);
     const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null);
     const onFinish = (values) => {
@@ -14,8 +17,6 @@ function Forms() {
       const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
       };
-      
-     
 
     return(
         <Flex gap="middle" wrap>
@@ -24,7 +25,7 @@ function Forms() {
             Sider
           </Sider>
           <Layout>
-            <Header className='headerStyle'>List of Company's Users</Header>
+            <Header className='headerStyle'>Manage Users</Header>
             <Content className='contentStyle'>
                 <Form
                     name="basic"
@@ -46,8 +47,19 @@ function Forms() {
                     autoComplete="off"
                 >
                     <Form.Item 
+                    label="ID"
+                    rules={[
+                        {
+                        required: true,
+                        message: 'Please input id!',
+                        },
+                    ]}
+                    >
+                    <Input type='text' onChange={(e) => setId(e.target.value)} value={id}/>
+                    </Form.Item>
+                    <Form.Item 
                     label="Email"
-                    name="email"
+                 
                     rules={[
                         {
                         required: true,
@@ -59,7 +71,7 @@ function Forms() {
                     </Form.Item>
                     <Form.Item
                     label="Username"
-                    name="username"
+                   
                     rules={[
                         {
                         required: true,
@@ -68,12 +80,12 @@ function Forms() {
                     ]}
 
                     >
-                    <Input type='text' onChange={(e) => setUsername(e.target.value)} value={username} />
+                    <Input type='text' onChange={(e) => setUsername(e.target.value)} value={username}  />
                     </Form.Item>
 
                     <Form.Item
                     label="Password"
-                    name="password"
+                    
                     rules={[
                         {
                         required: true,
@@ -81,11 +93,11 @@ function Forms() {
                         },
                     ]}
                     >
-                    <Input.Password type='text' onChange={(e) => setPassword(e.target.value)} value={password}/>
+                    <Input.Password type='text' onChange={(e) => setPassword(e.target.value)} value={password} />
                     </Form.Item>
 
                     <Form.Item
-                    name="remember"
+                   
                     valuePropName="checked"
                     wrapperCol={{
                         offset: 8,
@@ -102,23 +114,17 @@ function Forms() {
                     }}
                     >
                     <Button className='buttonStyle' type="primary" htmlType="submit"
-                    onClick={async()=> {
-                        let result = await fetchAPI('/store', 'POST', {
-                            username, email, password
-                        })
-                        console.log(result)
-                        if (result.ok) { //.ok check if the status code is 200
-                            alert('User added successfully')
-                        } else {
-                            alert('Failed to add user')
-                        };
-                    }} >
+                      
+                     >
                         Add 
                     </Button>
-                    <Button type="primary" className='buttonStyle' htmlType="submit">
+                    <Button type="primary" className='buttonStyle' htmlType="submit"
+                       onClick={() => onDelete(id)}
+                      >
                         Delete 
                     </Button>
-                    <Button type="primary" className='buttonStyle' htmlType="submit">
+                    <Button type="primary" className='buttonStyle' htmlType="submit"
+                       >
                         Update 
                     </Button>
                     </Form.Item>
