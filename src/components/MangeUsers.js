@@ -3,7 +3,7 @@ import { getUsers, deleteUser, updateUser, createUser } from '../services/userSe
 import User from './User';
 import Forms from './Forms';
 
-const CRUD = () => {
+const ManageUsers = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -29,13 +29,12 @@ const CRUD = () => {
     await updateUser(id, username, email, password);
     loadUsers();
   };
-
   return (
     <div>
       <h2>User List</h2>
-        <Forms key={user.id} user={user} onEdit={handleUpdate} onDelete={handleDelete} onCreate={handleCreate} />
+        <Forms  onEdit={handleUpdate} onCreate={handleCreate} onDelete={handleDelete} />
     </div>
   );
 };
 
-export default CRUD;
+export default ManageUsers;
