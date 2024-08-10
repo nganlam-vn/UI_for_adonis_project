@@ -20,14 +20,6 @@ const Forms = ({ onEdit, onDelete , onCreate }) =>{
       };
 
     return(
-        <Flex gap="middle" wrap>
-        <Layout className='layoutStyle'>
-        <Sider width="25%" className='siderStyle'>
-            Sider
-          </Sider>
-          <Layout>
-            <Header className='headerStyle'>Manage Users</Header>
-            <Content className='contentStyle'>
                 <Form
                     name="basic"
                     labelCol={{
@@ -133,13 +125,6 @@ const Forms = ({ onEdit, onDelete , onCreate }) =>{
                     </Button>
                     </Form.Item>
                 </Form>
-              </Content>
-           
-            <Footer className='footerStyle'>Footer</Footer>
-          </Layout>
-          
-        </Layout>
-      </Flex>
       
     );
 }

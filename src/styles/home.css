@@ -1,0 +1,55 @@
+
+  
+
+  .buttonStyle {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  
+  .headerStyle {
+    text-align: center;
+    color: #fff;
+    height: 64;
+    padding-inline: 48;
+    line-height: 64px;
+    background-color: rgb(128, 87, 0);
+  }
+  .contentStyle {
+   text-align: center   ;   
+    min-height: 120;
+    line-height: 120px;
+    color: #fff;
+    background-color: white;
+  }
+  .siderStyle {
+   text-align: center;
+    line-height: 120px;
+    color: #fff;
+   
+    background-color: rebeccapurple;
+  }
+  .footerStyle {
+   text-align: center;
+    color: #fff;
+    background-color: #4096ff;
+  }
+  .layoutStyle {
+    border-radius: 8;
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  
+  .App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+ 
+  
