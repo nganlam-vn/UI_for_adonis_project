@@ -1,15 +1,14 @@
 import React from 'react';
 import '../App.css';
 import { useState} from 'react';
-import { Flex, Layout, Form, Input, Button, Checkbox } from 'antd';
+import { Flex, Layout, Form, Input, Button } from 'antd';
 const { Header, Footer, Sider, Content } = Layout;
 
 
-const Forms = ({ onEdit, onDelete , onCreate }) =>{
+const Forms = ({onCreate }) =>{
     const [username, setUsername] = useState(null);
-    const [id, setId] = useState(null);
-    const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null);
+    const [email, setEmail] = useState(null);
     const onFinish = (values) => {
         console.log('Success:', values);
       };
@@ -37,28 +36,18 @@ const Forms = ({ onEdit, onDelete , onCreate }) =>{
                     onFinishFailed={onFinishFailed}
                     autoComplete="off"
                 >
-                    <Form.Item 
-                    label="ID"
-                    rules={[
-                        {
-                        required: true,
-                        message: 'Please input id!',
-                        },
-                    ]}
-                    >
-                    <Input type='text' onChange={(e) => setId(e.target.value)} value={id}/>
-                    </Form.Item>
-                    <Form.Item 
+                    <Form.Item
                     label="Email"
-                 
+                   
                     rules={[
                         {
                         required: true,
                         message: 'Please input email!',
                         },
                     ]}
+
                     >
-                    <Input type='text' onChange={(e) => setEmail(e.target.value)} value={email} />
+                    <Input type='text' onChange={(e) => setEmail(e.target.value)} value={email}  />
                     </Form.Item>
                     <Form.Item
                     label="Username"
@@ -88,39 +77,16 @@ const Forms = ({ onEdit, onDelete , onCreate }) =>{
                     </Form.Item>
 
                     <Form.Item
-                   
-                    valuePropName="checked"
                     wrapperCol={{
                         offset: 8,
                         span: 16,
                     }}
                     >
+                    <Button type="primary" className='buttonStyle' htmlType="submit"
+                       onClick={() => onCreate(username, email, password)}>
+                        Sign Up 
+                    </Button>
                    
-                    </Form.Item>
-
-                    <Form.Item
-                    wrapperCol={{
-                        offset: 8,
-                        span: 16,
-                    }}
-                    >
-                    <Button className='buttonStyle' type="primary" htmlType="submit"
-                      onClick={() => onCreate(username, email, password)}
-                     >
-                        Add 
-                    </Button>
-                    <Button type="primary" className='buttonStyle' htmlType="submit"
-                       onClick={() =>  {
-                        onDelete(id);
-                       }}
-                      >
-                        Delete 
-                    </Button>
-                    <Button type="primary" className='buttonStyle' htmlType="submit"
-                       onClick={() => onEdit(id, username, email, password)}
-                       >
-                        Update 
-                    </Button>
                     </Form.Item>
                 </Form>
       
