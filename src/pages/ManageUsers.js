@@ -34,7 +34,7 @@ const ManageUsers = () => {
   };
   return (
     <div>
-      <PageLayout header={'Manage User'} data={<Forms onEdit={handleUpdate} onCreate={handleCreate} onDelete={handleDelete} />}  />
+      <PageLayout header={'Manage User'} content={<Forms onEdit={handleUpdate} onCreate={handleCreate} onDelete={handleDelete} />}  />
     </div>
   );
 };

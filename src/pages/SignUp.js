@@ -10,7 +10,7 @@ const SignUp = () => {
       };
   return (
     <div>
-        <FormLayout header={'SIGN UP'} data={<CardComponent data=
+        <FormLayout header={'SIGN UP'} content={<CardComponent data=
         {<SignUpForm onCreate={handleCreate} />} />}
         />
     </div>

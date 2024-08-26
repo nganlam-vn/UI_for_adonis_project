@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { Flex, Layout } from 'antd';
 const { Header, Footer, Sider, Content } = Layout;
 
-function PageLayout({data, header, sider, footer}) {
+function PageLayout({content, header, sider, footer}) {
    
   return(
     <Flex gap="middle" wrap>
@@ -14,7 +14,7 @@ function PageLayout({data, header, sider, footer}) {
       <Layout>
         <Header className='headerStyle'>{header}</Header>
         <Content className='contentStyle'>
-            {data}
+            {content}
           </Content>
         <Footer className='footerStyle'>{footer}</Footer>
       </Layout>

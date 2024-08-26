@@ -1,5 +1,7 @@
 const API_URL = 'http://127.0.0.1:3333/api/v1';
 
+
+
 export const login = async (username, password) => {
   try {
   const response = await fetch(API_URL + '/login', {
@@ -7,7 +9,7 @@ export const login = async (username, password) => {
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ username, password }),
+    body: JSON.stringify({ username, password}),
   }
   );
   const data = await response.json(); // Parse the JSON response body form api
@@ -15,6 +17,8 @@ export const login = async (username, password) => {
   if (response.ok) {
       // If the response is okay, login was successful
       alert('Login successfully');
+      // Redirect to the home page
+      window.location.href = '/';
   } else {
       // If the response is not okay, display the error message
       alert(`Login failed: ${data.message}`);

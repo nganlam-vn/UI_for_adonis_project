@@ -2,12 +2,14 @@ import React from 'react';
 import '../App.css';
 import { useState} from 'react';
 import { Flex, Layout, Form, Input, Button } from 'antd';
+import SignUp from '../pages/SignUp';
 const { Header, Footer, Sider, Content } = Layout;
 
 
-const Forms = ({onLogin }) =>{
+const Forms = ({onLogin, onSignUp }) =>{
     const [username, setUsername] = useState(null);
     const [password, setPassword] = useState(null);
+    const [isLogin, setIsLogin] = useState(false);
     const onFinish = (values) => {
         console.log('Success:', values);
       };
@@ -34,7 +36,7 @@ const Forms = ({onLogin }) =>{
                     onFinish={onFinish}
                     onFinishFailed={onFinishFailed}
                     autoComplete="off"
-                >
+                    >
                
                     <Form.Item
                     label="Username"
@@ -75,7 +77,7 @@ const Forms = ({onLogin }) =>{
                         Sign In 
                     </Button>
                     <Button type="primary" className='buttonStyle' htmlType="submit"
-                      >
+                      onClick={() => onSignUp()}>
                         Sign Up 
                     </Button>
                    
